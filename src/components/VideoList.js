@@ -3,10 +3,8 @@ import VideoItem from './videoItem/VideoItem'
 
 const VideoList = props => {
   const { videos, onVideoSelect } = props
-  console.log(videos)
-  console.log(typeof onVideoSelect)
   const videoList = videos.map(video => (
-    <div className="ui relaxed divided selection list">
+    <div className="ui relaxed divided selection list videoList">
       <VideoItem
         key={video.id.videoId}
         video={video}

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import SearchBar from './SearchBar'
 import VideoList from './VideoList'
 import VideoDetail from './VideoDetail'
-import VideoDisplay from './VideoDisplay'
 import youtube from '../api/youtube'
 import './App.css'
 
@@ -23,14 +22,16 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div className="ui container">
+      <div className="ui container app">
         <SearchBar onTermSubmit={this.onTermSubmit} />
+
+        {this.state.selectedVideo && (
+          <VideoDetail video={this.state.selectedVideo} />
+        )}
         <VideoList
           videos={this.state.videos}
           onVideoSelect={this.onVideoSelect}
         />
-        <VideoDisplay />
-        <VideoDetail />
       </div>
     )
   }
