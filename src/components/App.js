@@ -22,16 +22,18 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div className="ui container app">
+      <div className="ui container">
         <SearchBar onTermSubmit={this.onTermSubmit} />
 
         {this.state.selectedVideo && (
           <VideoDetail video={this.state.selectedVideo} />
         )}
-        <VideoList
-          videos={this.state.videos}
-          onVideoSelect={this.onVideoSelect}
-        />
+        {this.state.videos && (
+          <VideoList
+            videos={this.state.videos}
+            onVideoSelect={this.onVideoSelect}
+          />
+        )}
       </div>
     )
   }

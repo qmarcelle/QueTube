@@ -3,20 +3,15 @@ import VideoItem from './videoItem/VideoItem'
 
 const VideoList = props => {
   const { videos, onVideoSelect } = props
+
   const videoList = videos.map(video => (
-    <div className="ui relaxed divided selection list videoList">
-      <VideoItem
-        key={video.id.videoId}
-        video={video}
-        onVideoSelect={onVideoSelect}
-      />
-    </div>
+    <VideoItem
+      key={video.id.videoId}
+      video={video}
+      onVideoSelect={onVideoSelect}
+    />
   ))
-  return videoList.length > 0 ? (
-    videoList
-  ) : (
-    <div className="ui relaxed divided list">No Videos</div>
-  )
+  return <div className="ui relaxed divided selection list">{videoList}</div>
 }
 
 export default VideoList
